@@ -1,0 +1,118 @@
+/* src/components/Sidebar/Sidebar.css */
+.sidebar {
+  background: linear-gradient(160deg, rgba(44, 28, 68, .96), rgba(24, 17, 45, .96));
+  padding: 1.35rem;
+  border-radius: 1rem;
+  box-shadow: 0 12px 26px rgba(4, 2, 16, .28);
+  border: 1px solid rgba(238, 152, 210, .18);
+  width: 250px;
+  min-height: 500px;
+}
+
+.sidebar-section {
+  margin-bottom: 2rem;
+}
+
+.sidebar-section h3 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  padding-bottom: 0.5rem;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+}
+
+.category-item {
+  padding: 0.6rem 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: .55rem;
+  transition: all 0.2s;
+  color: #ead7ea;
+}
+
+.category-item:hover {
+  background: rgba(255,255,255,.1);
+  color: #fff;
+}
+
+.category-item.active {
+  background: linear-gradient(135deg, #8d4ec7, #d95aaa);
+  color: white;
+}
+
+.category-icon {
+  font-size: 0.8rem;
+}
+
+.check-icon {
+  font-size: 0.7rem;
+}
+
+.price-range {
+  padding: 0.5rem 0;
+}
+
+.price-range input[type="range"] {
+  width: 100%;
+  height: 5px;
+  -webkit-appearance: none;
+  background: rgba(255,255,255,.18);
+  outline: none;
+  border-radius: 5px;
+}
+
+.price-range input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #bf55ad;
+  cursor: pointer;
+}
+
+.price-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #ead7ea;
+}
+
+.rating-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rating-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.rating-label:hover {
+  background: rgba(255,255,255,.1);
+}
+
+.rating-label span {
+  color: #f2a532;
+  font-size: 0.9rem;
+}
+
+.rating-count {
+  color: #636e72;
+}

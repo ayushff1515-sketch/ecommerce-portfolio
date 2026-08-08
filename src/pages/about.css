@@ -1,0 +1,51 @@
+/* src/pages/About.css */
+.about {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.about h1 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.about-content {
+  background: linear-gradient(155deg, rgba(49,31,75,.96), rgba(27,18,50,.96));
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(4,2,16,.26);
+  border: 1px solid rgba(238,152,210,.18);
+}
+
+.about-content p {
+  color: #e1cfdf;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.about-feature {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255,255,255,.08);
+  border-radius: 10px;
+}
+
+.about-feature h3 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.about-feature p {
+  color: #e1cfdf;
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}

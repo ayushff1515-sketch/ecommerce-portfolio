@@ -1,0 +1,111 @@
+/* src/components/auth/Auth.css - Google Sign In & User Profile styles */
+
+.google-signin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  background: #fff;
+  color: #17203d;
+  border: 1px solid #e9eaf6;
+  border-radius: 999px;
+  padding: .45rem 1rem;
+  font-size: .82rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(29, 38, 86, .08);
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  white-space: nowrap;
+}
+
+.google-signin-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(29, 38, 86, .14);
+  border-color: #d7d4fa;
+}
+
+.google-signin-btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.google-signin-btn svg {
+  color: #db4437;
+  font-size: 1rem;
+}
+
+/* User profile chip shown in the header when signed in */
+.user-profile {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 999px;
+  padding: .3rem .45rem .3rem .3rem;
+  transition: background .2s, border-color .2s;
+}
+
+.user-profile:hover {
+  background: rgba(255, 255, 255, .16);
+  border-color: rgba(255, 255, 255, .24);
+}
+
+.user-avatar {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #d95aaa;
+}
+
+.user-avatar-icon {
+  width: 1.9rem;
+  height: 1.9rem;
+  color: #f4eafe;
+  border-radius: 50%;
+}
+
+.user-name {
+  color: #f4eafe;
+  font-size: .82rem;
+  font-weight: 700;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sign-out-btn {
+  background: none;
+  border: none;
+  color: #f493c6;
+  font-size: .95rem;
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+
+.sign-out-btn:hover {
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .user-name {
+    display: none;
+  }
+
+  .google-signin-btn span {
+    display: none;
+  }
+
+  .google-signin-btn {
+    padding: .5rem .65rem;
+  }
+}
+

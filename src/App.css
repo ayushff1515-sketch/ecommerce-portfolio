@@ -1,0 +1,81 @@
+/* src/App.css - Add these styles */
+.app { min-height: 100vh; display: flex; flex-direction: column; }
+.main-content { width: min(1380px, calc(100% - 3rem)); margin: 0 auto; padding: 2.5rem 0 1rem; flex: 1; }
+.announcement-bar {
+  min-height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: .35rem 1rem;
+  background: linear-gradient(90deg, #8d4ec7, #d95aaa 52%, #f783aa);
+  color: #fff;
+  font-size: .76rem;
+  font-weight: 750;
+  letter-spacing: .025em;
+}
+.announcement-detail { color: rgba(255,255,255,.82); font-weight: 600; }
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.loading-container .loader {
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-container p {
+  color: white;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-container p {
+  color: #e74c3c;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.error-container button {
+  padding: 0.8rem 2rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.error-container button:hover {
+  background: #5a67d8;
+}
+
+@media (max-width: 640px) {
+  .main-content { width: min(100% - 2rem, 1380px); padding-top: 1.5rem; }
+  .announcement-detail { display: none; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

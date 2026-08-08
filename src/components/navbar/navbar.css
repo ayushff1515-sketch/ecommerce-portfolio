@@ -1,0 +1,49 @@
+/* src/components/Navbar/Navbar.css */
+.navbar {
+  background: linear-gradient(100deg, #712fa7, #a842a6 55%, #d95a9c);
+  padding: .35rem 2rem;
+  box-shadow: 0 5px 18px rgba(137, 55, 135, .16);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: .25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  padding: .2rem 0;
+}
+
+.nav-link {
+  color: #fff4fc;
+  text-decoration: none;
+  font-size: .9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: .55rem .9rem;
+  border-radius: .55rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, .16);
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  color: #fff;
+  background: rgba(255, 255, 255, .24);
+}
+
+@media (max-width: 600px) { .navbar { padding: .3rem .75rem; overflow-x: auto; } .nav-menu { gap: 0; width: max-content; } .nav-link { padding: .5rem .7rem; } }

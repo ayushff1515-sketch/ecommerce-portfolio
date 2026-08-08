@@ -1,0 +1,230 @@
+/* src/pages/SignIn.css */
+.signin-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem 3rem;
+}
+
+.signin-card {
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border-radius: 1.25rem;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 18px 40px rgba(29, 38, 86, .12);
+  border: 1px solid #e9eaf6;
+  animation: card-arrive .45s ease both;
+}
+
+.signin-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  color: #a23ea0;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: .85rem;
+  margin-bottom: 1.5rem;
+  transition: color .2s;
+}
+
+.signin-back-link:hover {
+  color: #ef6194;
+}
+
+.signin-heading h1 {
+  margin: 0 0 .5rem;
+  font-size: 1.8rem;
+  letter-spacing: -.04em;
+  color: #17203d;
+}
+
+.signin-heading p {
+  margin: 0 0 1.5rem;
+  color: #717994;
+  font-size: .92rem;
+  line-height: 1.5;
+}
+
+.signin-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.signin-field {
+  display: grid;
+  gap: .4rem;
+}
+
+.signin-field > span {
+  font-size: .8rem;
+  font-weight: 700;
+  color: #17203d;
+}
+
+.signin-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.signin-input-icon {
+  position: absolute;
+  left: .9rem;
+  color: #a0a6bf;
+  font-size: .9rem;
+  pointer-events: none;
+}
+
+.signin-input-wrap input {
+  width: 100%;
+  padding: .8rem 1rem .8rem 2.5rem;
+  border: 1.5px solid #e4e6f5;
+  border-radius: .7rem;
+  font-size: .95rem;
+  color: #17203d;
+  background: #fafafe;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+.signin-input-wrap input:focus {
+  border-color: #b246a1;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(178, 70, 161, .12);
+}
+
+.signin-input-wrap input::placeholder {
+  color: #b6bacf;
+}
+
+.signin-error {
+  margin: 0;
+  background: #fdecec;
+  color: #d04545;
+  border: 1px solid #f8cfcf;
+  border-radius: .6rem;
+  padding: .65rem .85rem;
+  font-size: .84rem;
+  font-weight: 600;
+}
+
+.signin-submit-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  padding: .9rem 1rem;
+  border: none;
+  border-radius: .75rem;
+  background: linear-gradient(135deg, #8d4ec7, #d95aaa);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 750;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(181, 70, 157, .25);
+  transition: transform .2s, box-shadow .2s, opacity .2s;
+  margin-top: .35rem;
+}
+
+.signin-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(181, 70, 157, .32);
+}
+
+.signin-submit-btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.signin-divider {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin: 1.4rem 0;
+}
+
+.signin-divider::before,
+.signin-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e9eaf6;
+}
+
+.signin-divider span {
+  color: #8b90aa;
+  font-size: .78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  white-space: nowrap;
+}
+
+.signin-google-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  padding: .85rem 1rem;
+  border: 1.5px solid #e4e6f5;
+  border-radius: .75rem;
+  background: #fff;
+  color: #17203d;
+  font-size: .95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, border-color .2s, box-shadow .2s, transform .2s;
+}
+
+.signin-google-btn:hover:not(:disabled) {
+  background: #f8f6ff;
+  border-color: #d7d4fa;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(29, 38, 86, .1);
+}
+
+.signin-google-btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.signin-google-btn svg {
+  color: #db4437;
+  font-size: 1.1rem;
+}
+
+.signin-toggle {
+  text-align: center;
+  color: #717994;
+  font-size: .88rem;
+  margin: 1.4rem 0 0;
+}
+
+.signin-toggle button {
+  background: none;
+  border: none;
+  color: #b246a1;
+  font-weight: 750;
+  font-size: .88rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color .2s;
+}
+
+.signin-toggle button:hover {
+  color: #ef6194;
+}
+
+@keyframes card-arrive {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signin-card { animation: none; }
+}
+

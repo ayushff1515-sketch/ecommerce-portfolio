@@ -1,0 +1,10 @@
+.contact-page {
+  max-width: 800px;
+  min-height: 40vh;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  color: #e1cfdf;
+}
+
+.contact-page h1 { color: #fff; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.05em; }
+.contact-page a { color: #f2a4cf; font-weight: 700; }
