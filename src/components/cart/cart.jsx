@@ -1,7 +1,7 @@
 // src/components/Cart/Cart.jsx
 import { useNavigate } from 'react-router-dom';
 import { FaTimes, FaTrash, FaPlus, FaMinus } from 'react-icons/fa';
-import './Cart.css';
+import './cart.css';
 
 const Cart = ({ cartItems, onRemove, onUpdateQuantity, onClose, isOpen }) => {
   const navigate = useNavigate();

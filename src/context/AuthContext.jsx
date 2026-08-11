@@ -1,6 +1,6 @@
 // src/context/AuthContext.jsx
 import { useState, useEffect } from 'react'
-import { supabase } from '../services/supabaseClient'
+import { supabase, isSupabaseConfigured } from '../services/supabaseClient'
 import { AuthContext } from './auth'
 
 export const AuthProvider = ({ children }) => {
@@ -11,6 +11,11 @@ export const AuthProvider = ({ children }) => {
   const [authError, setAuthError] = useState(null)
 
   useEffect(() => {
+    if (!isSupabaseConfigured) {
+      setLoading(false)
+      return
+    }
+
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session)
@@ -31,6 +36,10 @@ export const AuthProvider = ({ children }) => {
   }, [])
 
   const signInWithGoogle = async () => {
+    if (!isSupabaseConfigured) {
+      console.error('Cannot sign in: Supabase is not configured')
+      return
+    }
     try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
@@ -45,6 +54,11 @@ export const AuthProvider = ({ children }) => {
   }
 
   const signInWithEmail = async (email, password) => {
+    if (!isSupabaseConfigured) {
+      const message = 'Authentication is not configured'
+      setAuthError(message)
+      return { success: false, error: message }
+    }
     try {
       setAuthLoading(true)
       setAuthError(null)
@@ -64,6 +78,11 @@ export const AuthProvider = ({ children }) => {
   }
 
   const signUp = async (email, password) => {
+    if (!isSupabaseConfigured) {
+      const message = 'Authentication is not configured'
+      setAuthError(message)
+      return { success: false, error: message }
+    }
     try {
       setAuthLoading(true)
       setAuthError(null)
@@ -83,6 +102,7 @@ export const AuthProvider = ({ children }) => {
   }
 
   const signOut = async () => {
+    if (!isSupabaseConfigured) return
     try {
       const { error } = await supabase.auth.signOut()
       if (error) throw error
