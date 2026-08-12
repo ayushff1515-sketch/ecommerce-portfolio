@@ -4,7 +4,7 @@ A modern and responsive E-Commerce web application built with React and Vite. Th
 
 ## 🚀 Live Demo
 
-🔗 Add your deployed link here
+🔗 (https://ecommerce-portfolio17.netlify.app/)
 
 ## 📸 Preview
 
