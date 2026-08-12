@@ -77,7 +77,7 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
-  const signUp = async (email, password) => {
+  const signUp = async (email, password, firstName, lastName) => {
     if (!isSupabaseConfigured) {
       const message = 'Authentication is not configured'
       setAuthError(message)
@@ -90,6 +90,11 @@ export const AuthProvider = ({ children }) => {
         email,
         password,
         options: {
+          data: {
+            first_name: firstName,
+            last_name: lastName,
+            full_name: `${firstName} ${lastName}`.trim(),
+          },
           // Keep users on the sign-in screen after confirming their email.
           // This URL must also be listed in Supabase Auth's Redirect URLs.
           emailRedirectTo: `${window.location.origin}/signin`,

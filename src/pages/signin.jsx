@@ -1,7 +1,7 @@
 // src/pages/SignIn.jsx
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { FaGoogle, FaLock, FaEnvelope, FaUserPlus, FaArrowLeft } from 'react-icons/fa'
+import { FaGoogle, FaLock, FaEnvelope, FaUserPlus, FaArrowLeft, FaUser } from 'react-icons/fa'
 import { useAuth } from '../context/auth'
 import './signin.css'
 
@@ -9,6 +9,8 @@ const SignIn = () => {
   const [isSignUp, setIsSignUp] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [localError, setLocalError] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
   const { signInWithEmail, signUp, signInWithGoogle, authLoading, authError, user } = useAuth()
@@ -27,13 +29,21 @@ const SignIn = () => {
       setLocalError('Please enter your email address.')
       return
     }
+    if (isSignUp && !firstName.trim()) {
+      setLocalError('Please enter your first name.')
+      return
+    }
+    if (isSignUp && !lastName.trim()) {
+      setLocalError('Please enter your last name.')
+      return
+    }
     if (password.length < 6) {
       setLocalError('Password must be at least 6 characters long.')
       return
     }
 
     const result = isSignUp
-      ? await signUp(email.trim(), password)
+      ? await signUp(email.trim(), password, firstName.trim(), lastName.trim())
       : await signInWithEmail(email.trim(), password)
 
     if (result.success && result.requiresEmailConfirmation) {
@@ -52,6 +62,8 @@ const SignIn = () => {
     setIsSignUp((prev) => !prev)
     setLocalError('')
     setSuccessMessage('')
+    setFirstName('')
+    setLastName('')
   }
 
   const errorMessage = localError || authError
@@ -69,6 +81,38 @@ const SignIn = () => {
         </div>
 
         <form className="signin-form" onSubmit={handleSubmit}>
+          {isSignUp && (
+            <div className="signin-name-fields">
+              <label className="signin-field">
+                <span>First name</span>
+                <div className="signin-input-wrap">
+                  <FaUser className="signin-input-icon" />
+                  <input
+                    type="text"
+                    placeholder="First name"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    autoComplete="given-name"
+                    required
+                  />
+                </div>
+              </label>
+              <label className="signin-field">
+                <span>Last name</span>
+                <div className="signin-input-wrap">
+                  <FaUser className="signin-input-icon" />
+                  <input
+                    type="text"
+                    placeholder="Last name"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    autoComplete="family-name"
+                    required
+                  />
+                </div>
+              </label>
+            </div>
+          )}
           <label className="signin-field">
             <span>Email</span>
             <div className="signin-input-wrap">
