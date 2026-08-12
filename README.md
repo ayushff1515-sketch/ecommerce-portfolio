@@ -129,7 +129,7 @@ Through this project, I gained experience in:
 ### Ayush Kumar
 
 - GitHub: https://github.com/ayushff1515-sketch
-- LinkedIn: Add your LinkedIn Profile
+- LinkedIn: https://www.linkedin.com/in/ayush-kumar-12425a340
 
 ---
 
