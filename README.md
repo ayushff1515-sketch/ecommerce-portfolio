@@ -1,5 +1,17 @@
 # React + Vite
 
+## Authentication and deployment
+
+Email sign-up uses Supabase Auth. In the Supabase dashboard, add your deployed
+site's sign-in URL (for example, `https://your-site.com/signin`) under
+**Authentication → URL Configuration → Redirect URLs**. If email confirmation
+is enabled, new users must confirm the email before they can sign in.
+
+The project includes SPA fallback rules for Vercel (`vercel.json`) and Netlify
+(`public/_redirects`) so refreshing `/signin` loads the React app instead of a
+404 page. Deploy the latest build for the rule that matches your host to take
+effect.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

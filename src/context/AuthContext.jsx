@@ -89,9 +89,20 @@ export const AuthProvider = ({ children }) => {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
+        options: {
+          // Keep users on the sign-in screen after confirming their email.
+          // This URL must also be listed in Supabase Auth's Redirect URLs.
+          emailRedirectTo: `${window.location.origin}/signin`,
+        },
       })
       if (error) throw error
-      return { success: true, user: data.user }
+      return {
+        success: true,
+        user: data.user,
+        // When Confirm email is enabled in Supabase, there is no session until
+        // the user follows the confirmation link.
+        requiresEmailConfirmation: !data.session,
+      }
     } catch (error) {
       const message = error.message || 'Failed to create account'
       setAuthError(message)

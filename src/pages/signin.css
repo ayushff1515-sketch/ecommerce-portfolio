@@ -110,6 +110,17 @@
   font-weight: 600;
 }
 
+.signin-success {
+  margin: 0;
+  background: #edfdf3;
+  color: #166534;
+  border: 1px solid #b7efc9;
+  border-radius: .6rem;
+  padding: .65rem .85rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
 .signin-submit-btn {
   width: 100%;
   display: inline-flex;
@@ -227,4 +238,3 @@
 @media (prefers-reduced-motion: reduce) {
   .signin-card { animation: none; }
 }
-

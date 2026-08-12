@@ -1,5 +1,5 @@
 // src/pages/SignIn.jsx
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { FaGoogle, FaLock, FaEnvelope, FaUserPlus, FaArrowLeft } from 'react-icons/fa'
 import { useAuth } from '../context/auth'
@@ -10,17 +10,18 @@ const SignIn = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [localError, setLocalError] = useState('')
+  const [successMessage, setSuccessMessage] = useState('')
   const { signInWithEmail, signUp, signInWithGoogle, authLoading, authError, user } = useAuth()
   const navigate = useNavigate()
 
-  if (user) {
-    navigate('/')
-    return null
-  }
+  useEffect(() => {
+    if (user) navigate('/', { replace: true })
+  }, [navigate, user])
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     setLocalError('')
+    setSuccessMessage('')
 
     if (!email.trim()) {
       setLocalError('Please enter your email address.')
@@ -35,7 +36,10 @@ const SignIn = () => {
       ? await signUp(email.trim(), password)
       : await signInWithEmail(email.trim(), password)
 
-    if (result.success) {
+    if (result.success && result.requiresEmailConfirmation) {
+      setSuccessMessage('Check your inbox and confirm your email address before signing in.')
+      setPassword('')
+    } else if (result.success) {
       navigate('/')
     }
   }
@@ -47,6 +51,7 @@ const SignIn = () => {
   const toggleMode = () => {
     setIsSignUp((prev) => !prev)
     setLocalError('')
+    setSuccessMessage('')
   }
 
   const errorMessage = localError || authError
@@ -95,6 +100,7 @@ const SignIn = () => {
           </label>
 
           {errorMessage && <p className="signin-error">{errorMessage}</p>}
+          {successMessage && <p className="signin-success" role="status">{successMessage}</p>}
 
           <button
             type="submit"
@@ -136,4 +142,3 @@ const SignIn = () => {
 }
 
 export default SignIn
-
