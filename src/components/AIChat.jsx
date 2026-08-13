@@ -37,6 +37,11 @@ function AIChat() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: question, catalog }),
       })
+      const contentType = result.headers.get('content-type') || ''
+      if (!contentType.includes('application/json')) {
+        throw new Error('The AI service is unavailable on this deployment. Deploy the API function and try again.')
+      }
+
       const data = await result.json()
       if (!result.ok) throw new Error(data.error || 'Unable to reach the shopping assistant.')
       setResponse(data.answer)
