@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom'
 import api from '../services/api'
 import './AIChat.css'
 
+const aiEndpoint = window.location.hostname.endsWith('.netlify.app')
+  ? '/.netlify/functions/ai'
+  : '/api/ai'
+
 function AIChat() {
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState([])
@@ -55,7 +59,7 @@ function AIChat() {
 
     try {
       const liveCatalog = await loadCatalog()
-      const result = await fetch('/api/ai', {
+      const result = await fetch(aiEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: updatedMessages, catalog: liveCatalog }),
