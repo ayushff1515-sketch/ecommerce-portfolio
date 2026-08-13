@@ -6,13 +6,12 @@ import { AuthContext } from './auth'
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
   const [session, setSession] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(isSupabaseConfigured)
   const [authLoading, setAuthLoading] = useState(false)
   const [authError, setAuthError] = useState(null)
 
   useEffect(() => {
     if (!isSupabaseConfigured) {
-      setLoading(false)
       return
     }
 

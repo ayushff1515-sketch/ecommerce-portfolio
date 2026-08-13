@@ -19,6 +19,7 @@ import Payment from './pages/Payment';
 import PaymentSuccess from './pages/PaymentSuccess';
 import { useProducts, useFeaturedProducts, useSearch } from './hooks/useProducts';
 import './App.css';
+import AIChat from "./components/AIChat";
 
 function AppContent() {
   const { cartItems, isCartOpen, setIsCartOpen, addToCart, removeFromCart, updateQuantity } = useCart();
@@ -110,6 +111,7 @@ function App() {
       <AuthProvider>
         <CartProvider>
           <AppContent />
+          <AIChat />
         </CartProvider>
       </AuthProvider>
     </Router>
