@@ -10,7 +10,7 @@ import './products.css';
 const Products = ({ products, onAddToCart, loading, searchQuery }) => {
   const productsPerPage = 9;
   const [sortOption, setSortOption] = useState('default');
-  const [filters, setFilters] = useState({ category: 'All', priceRange: [0, 1000] });
+  const [filters, setFilters] = useState({ category: 'All', priceRange: [0, Number.POSITIVE_INFINITY] });
   const [currentPage, setCurrentPage] = useState(1);
   const { categories, loading: categoriesLoading } = useCategories();
 
@@ -21,7 +21,9 @@ const Products = ({ products, onAddToCart, loading, searchQuery }) => {
       result = result.filter((product) => product.category === filters.category);
     }
 
-    result = result.filter((product) => Number(product.price) <= filters.priceRange[1]);
+    if (Number.isFinite(filters.priceRange[1])) {
+      result = result.filter((product) => Number(product.price) <= filters.priceRange[1]);
+    }
 
     const byTitle = (first, second) =>
       String(first.title || '').localeCompare(String(second.title || ''));

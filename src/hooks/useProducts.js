@@ -116,7 +116,6 @@ export const useSearch = () => {
 export const useFeaturedProducts = (limit = 4) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchFeatured = async () => {
@@ -124,9 +123,7 @@ export const useFeaturedProducts = (limit = 4) => {
         setLoading(true);
         const data = await api.getFeaturedProducts(limit);
         setProducts(data);
-        setError(null);
-      } catch (err) {
-        setError(err.message);
+      } catch {
         setProducts([]);
       } finally {
         setLoading(false);
@@ -136,5 +133,5 @@ export const useFeaturedProducts = (limit = 4) => {
     fetchFeatured();
   }, [limit]);
 
-  return { products, loading, error };
+  return { products, loading };
 };

@@ -16,12 +16,20 @@
 
 .ai-chat-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: .7rem; }
 .ai-chat h2 { margin: 0; color: #fff; font-size: 1rem; }
-.ai-chat input { width: 100%; box-sizing: border-box; padding: .7rem; border: 1px solid #73538c; border-radius: .5rem; }
+.ai-chat-messages { display: grid; max-height: 17rem; gap: .55rem; overflow-y: auto; margin-bottom: .7rem; padding-right: .15rem; }
+.ai-chat-welcome { margin: 0; color: #e7d8ec; line-height: 1.45; }
+.ai-chat-message { max-width: 88%; margin: 0; padding: .6rem .75rem; border-radius: .7rem; line-height: 1.45; white-space: pre-wrap; }
+.ai-chat-message-user { justify-self: end; background: #d95aaa; color: #fff; border-bottom-right-radius: .15rem; }
+.ai-chat-message-assistant { justify-self: start; background: #3a2a59; color: #f3eaf2; border-bottom-left-radius: .15rem; }
+.ai-chat-list { margin: 0; padding-left: 1.1rem; }
+.ai-chat-list li + li { margin-top: .4rem; }
+.ai-product-link { color: #ffd3ec; font-weight: 700; text-decoration: underline; }
+.ai-product-link:hover { color: #fff; }
+.ai-chat textarea { width: 100%; box-sizing: border-box; padding: .7rem; border: 1px solid #73538c; border-radius: .5rem; resize: vertical; font: inherit; }
 .ai-chat-submit { margin-top: .6rem; padding: .65rem .85rem; border: 0; border-radius: .5rem; background: #d95aaa; color: #fff; font-weight: 700; cursor: pointer; }
 .ai-chat-submit:disabled { opacity: .6; cursor: not-allowed; }
 .ai-chat-close { padding: .2rem; border: 0; background: transparent; color: #fff; cursor: pointer; }
 .ai-chat-toggle { display: grid; width: 3.4rem; height: 3.4rem; margin: .7rem 0 0 auto; place-items: center; border: 0; border-radius: 50%; background: linear-gradient(135deg, #8d4ec7, #d95aaa); color: #fff; font-size: 1.35rem; cursor: pointer; box-shadow: 0 9px 22px rgba(4, 2, 16, .42); }
 .ai-chat-toggle:hover { transform: translateY(-2px); }
-.ai-chat-response, .ai-chat-error { margin: .75rem 0 0; line-height: 1.45; white-space: pre-wrap; }
-.ai-chat-response { color: #f3eaf2; }
+.ai-chat-error { margin: .75rem 0 0; line-height: 1.45; white-space: pre-wrap; }
 .ai-chat-error { color: #ffb8b8; }

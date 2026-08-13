@@ -23,7 +23,8 @@ import AIChat from "./components/AIChat";
 
 function AppContent() {
   const { cartItems, isCartOpen, setIsCartOpen, addToCart, removeFromCart, updateQuantity } = useCart();
-  const { products, loading: productsLoading, error: productsError } = useProducts(30);
+  // Load the full live catalogue so category filters can display every matching product.
+  const { products, loading: productsLoading, error: productsError } = useProducts(0);
   const { products: featuredProducts, loading: featuredLoading } = useFeaturedProducts(4);
   const { results, loading: searchLoading, search } = useSearch();
   const [searchQuery, setSearchQuery] = useState('');
@@ -31,11 +32,10 @@ function AppContent() {
   const navigate = useNavigate();
 
   const handleSearch = (query) => {
-    setSearchQuery(query);
-    if (query.trim()) {
-      search(query);
-      navigate('/products');
-    }
+    const normalizedQuery = query.trim();
+    setSearchQuery(normalizedQuery);
+    if (normalizedQuery) search(normalizedQuery);
+    navigate('/products');
   };
 
   const getCartCount = () => {
@@ -119,4 +119,3 @@ function App() {
 }
 
 export default App;
-

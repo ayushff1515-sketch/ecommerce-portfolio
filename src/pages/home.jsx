@@ -1,6 +1,4 @@
 // src/pages/Home.jsx
-import ProductCard from '../components/productCard/productCard';
-import Loader from '../components/loader/loader';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaHeadset, FaLock, FaTruck, FaUndoAlt } from 'react-icons/fa';
 import './home.css';
@@ -43,7 +41,7 @@ const Home = ({ products, onAddToCart, loading }) => {
         ) : (
           <div className="featured-grid">
             {products.map(product => (
-              <ProductCard 
+              <ProductCard
                 key={product.id}
                 product={product}
                 onAddToCart={onAddToCart}
@@ -80,3 +78,5 @@ const Home = ({ products, onAddToCart, loading }) => {
 };
 
 export default Home;
+import ProductCard from '../components/productCard/productCard';
+import Loader from '../components/loader/loader';
